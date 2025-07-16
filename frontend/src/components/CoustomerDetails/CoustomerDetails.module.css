@@ -1,0 +1,112 @@
+
+.CoustomerDetailsDivContainer{
+    height: auto;
+    /* width: 70%; */
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    /* border: 2px solid red; */
+    margin: 2rem auto;
+    text-align: center;
+}
+.CoustomerDetails{
+    width: 15rem;
+    height: 6rem;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    top: 30%;
+    margin: 10px;
+    /* background-color: #d3d3e9; */
+    /* background-color: #15a78a; */
+    background-color: #9d9dec;
+    align-items: center;
+    border-radius: 5px;
+}
+.header{
+    font-size: 1.5rem;
+    color: rgb(255, 0, 0);
+    /* color: whitesmoke; */
+    font-weight: bold;
+    margin-bottom: .1rem;
+    margin-top: .3rem;
+}
+.name{
+    font-size: 1.5rem;
+    /* color: #224957; */
+    color: rgb(147, 2, 2);
+    font-weight: bold;
+    margin-bottom: .1rem;
+}
+.mobaileNo{
+    font-size: 1.2rem;
+    /* color: #224957; */
+    color: rgb(147, 2, 2);
+    font-weight: bold;
+    margin-bottom: .1rem;
+}
+
+/* Table */
+.CoustomerTableDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    width: 80%;
+    margin: auto;
+}
+
+.CoustomerTableDiv span {
+    font-size: 22px;
+    color: #4a4a4a;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.CoustomerTable {
+    width: 70%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 18px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.CoustomerTable th,
+.CoustomerTable td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+.CoustomerTable thead {
+    background-color: #8e8edb;
+    color: white;
+}
+
+.CoustomerTable tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.CoustomerTable tbody tr:hover {
+    background-color: #e1e4e8;
+}
+
+.CoustomerTable tbody tr td a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.CoustomerTable tbody tr td a img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+
+.checkImg{
+    height: 21px;
+    width: 21px;
+}

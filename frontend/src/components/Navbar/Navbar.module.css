@@ -1,0 +1,46 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+.divNavbarContainer{
+    height: 4rem;
+    width: 100%;
+    background-color: #A0A0F9;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+img{
+    height: 2.2rem;
+    width: 2.2rem;
+}
+.underlineR{
+    text-decoration: none;
+    margin-top: .7rem;
+}
+.appname{
+    font-size: 2rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-left: 2rem;
+}
+.navPageContainer{
+    margin-right: 3rem;
+    display: flex;
+    flex-direction: row;
+    gap: 3rem; 
+}
+.underlineRmv{
+    text-decoration: none;
+    margin-top: .7rem;
+    display: flex;
+    flex-direction: row;
+    gap: .5rem;
+}
+.navPageContainer span{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    margin-top: .5rem;
+}

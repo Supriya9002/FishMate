@@ -1,0 +1,93 @@
+
+.fishContainerPage{
+    height: auto;
+    width: 70%;
+    /* border: 2px solid red; */
+    /* background-color: blueviolet; */
+    margin: 2.3rem auto;
+}
+.noRecordd{
+    text-align: center;
+    margin-top: 1.5rem;
+    color: rgb(255, 50, 50);
+}
+.fishHeader{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 65%;
+    margin: auto;
+}
+.fishHeader span{
+    font-size: 1.5rem;
+    font-weight: bolder;
+    color: rgb(27, 25, 25);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.fishHeader button{
+    height: 1.1 rem;
+    width: 7rem;
+    border: 2px solid #237ADE;
+    border-radius: 4px;
+    background-color: #F0F3F7;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #237AE3;
+}
+.headtext{
+    text-decoration: none;
+    color: #237AE3;
+}
+
+/* Table */
+
+.tablecontainer {
+    display: flex;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+table.leaderboard {
+    width: 65%;
+    border-collapse: collapse;
+    margin: 0 auto;
+    text-align: left;
+    font-size: 18px;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+table.leaderboard th,
+table.leaderboard td {
+    padding: 10px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+table.leaderboard thead {
+    /* background-color: #0a7b62; */
+    background-color: #8e8edb;
+    color: white;
+}
+
+table.leaderboard tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table.leaderboard tbody tr:hover {
+    background-color: #e1e4e8;
+}
+.addUserImg {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.outOfStock{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
+.outOfStockText{
+    color: red;
+    font-weight: bolder;
+}

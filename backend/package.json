@@ -1,0 +1,25 @@
+{
+  "name": "fishguru",
+  "version": "5.0.0",
+  "description": "This project will help streamline the process for small farmers and provide a clear picture of their business. Let me know if you need help implementing any specific part!",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "fishguru"
+  ],
+  "author": "Supriya Haldar",
+  "type": "module",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "cors": "^2.8.5",
+    "croc": "^0.0.22",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.1",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.8.3"
+  }
+}

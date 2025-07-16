@@ -1,0 +1,10 @@
+.profileContainer{
+    margin: 10rem  auto;
+    text-align: center;
+}
+.profileContainer h1{
+    color: red;
+}
+.profileContainer p{
+    color: rgb(0, 90, 0);
+}

@@ -1,0 +1,54 @@
+.SignContainer{
+    height: 300px;
+    width: 300px;
+    /* border: 2px solid red; */
+    display: flex;
+    flex-direction: column;
+    margin: 7rem auto;
+    /* justify-content: center; */
+    /* align-items: center; */
+    /* margin-bottom: 2rem; */
+}
+.Sign{
+    color: #224957;
+    font-size: 2.2rem;
+    font-weight: 700;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+}
+.SignForm{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: .9rem;
+}
+.SignForm input{
+    height: 2.9rem;
+    width: 16.5rem;
+    border: 1.5px solid #7064E5;
+    border-radius: 9px;
+    background-color: #F4F6F8;
+    font-size: 1.1rem;
+    padding-left: .5rem;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+.SignForm button{
+    height: 2.2rem;
+    width: 16.5rem;
+    border: 1.5px solid #7064E5;
+    border-radius: 9px;
+    background-color: #7064E5;
+    font-size: 1.1rem;
+    color: #F4F6F8;
+}
+.sup{
+    text-decoration: none;
+    margin-top: .4rem;
+}
+.hal{
+    margin-top: .5rem;
+    color: rgb(47, 46, 46);
+}
+.don{
+    color: #7064E5;
+    text-decoration: none;
+}
