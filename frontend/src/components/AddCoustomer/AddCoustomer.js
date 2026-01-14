@@ -25,7 +25,7 @@ export function AddCoustomer(){
 
   useEffect(()=>{
     if(coustomerDetails){
-      setFormData({...formData, name: coustomerDetails.name});
+      setFormData((prev)=>({...prev, name: coustomerDetails.name}));
     }
   },[coustomerDetails])
   

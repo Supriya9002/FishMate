@@ -18,19 +18,18 @@ export function PayOneForm() {
 
   useEffect(() => {
     dispatch(fetchCoustomerDetailsByID(coustomerID));
-  }, [coustomerID]);
+  }, [dispatch, coustomerID]);
 
   useEffect(() => {
     if (coustomerDetails?.transactions) {
       const coustomerTransactionDetails = coustomerDetails.transactions.find(
         (transaction) => transaction._id.toString() === transactionID
       );
-      console.log("TransactionID", transactionID);
-      console.log("coustomerID", coustomerID);
-      console.log(coustomerTransactionDetails);
-      setFormData({ Payment: coustomerTransactionDetails.amountDue });
+      if (coustomerTransactionDetails) {
+        setFormData((prev) => ({ ...prev, Payment: coustomerTransactionDetails.amountDue }));
+      }
     }
-  }, [transactionID]);
+  }, [coustomerDetails, transactionID]);
   const handlePayment = async (e) => {
     try {
       e.preventDefault();

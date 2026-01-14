@@ -10,7 +10,7 @@ import check from "./../Data/check.png"
 import zero from "./../Data/zero.png"
 
 export function CoustomerDetails() {
-    const { coustomerDetails, fishDetails } = useSelector((state) => state.coustomer);
+    const { coustomerDetails } = useSelector((state) => state.coustomer);
     const dispatch = useDispatch();
     const { coustomerID } = useParams();
     

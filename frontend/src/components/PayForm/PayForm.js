@@ -19,7 +19,7 @@ export function PayForm() {
     const { coustomerID } = useParams();
     useEffect(()=>{
         dispatch(fetchCoustomerDetailsByID(coustomerID))
-    },[coustomerID]);
+    },[dispatch, coustomerID]);
     
     const handlePayment = async(e)=>{
         try{

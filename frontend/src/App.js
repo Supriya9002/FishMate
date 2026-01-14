@@ -14,13 +14,9 @@ import store from "./Redux/store";
 import { Provider } from "react-redux";
 import { PayOneForm } from "./components/PayForm/PayOneForm";
 import ErrorPage from "./components/Error/ErrorPage";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
-import { useSelector } from "react-redux";
-import { useEffect } from "react";
+// Removed unused imports to satisfy CI ESLint
 import Toast from "./components/Toast/Toast";
 
-const path = localStorage.getItem("Path")
-// console.log("In App", path)
 function App() {
   const router = createBrowserRouter([
     {path: "/", element:<Navbar/>, errorElement: <ErrorPage/>,

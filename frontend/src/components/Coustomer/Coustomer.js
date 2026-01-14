@@ -14,7 +14,7 @@ export function Coustomer(){
 
     useEffect(()=>{
         dispatch(fetchAllCoustomer());
-    },[])
+    },[dispatch])
 
     const getTotalBuy = ((coustomer)=>{
         if(!coustomer.transactions || coustomer.transactions.length === 0){

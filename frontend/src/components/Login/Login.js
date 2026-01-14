@@ -13,7 +13,7 @@ function Login() {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const {setIsLogin} = adminActions;
-  const {loading, error, successMessage} = useSelector((state)=>state.admin);
+  const { error } = useSelector((state)=>state.admin);
   const handleSubmit =async (e)=>{
     e.preventDefault();
     try{

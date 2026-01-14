@@ -15,7 +15,7 @@ import { showToast } from "../../utils/toast";
 
 
 export function Navbar(){
-    const {isLogin, currentLocationPath} = useSelector((state)=> state.admin);
+    const {isLogin} = useSelector((state)=> state.admin);
     const dispatch = useDispatch();
     const {setIsLogin, setCurrentLocationPath} = adminActions;
     const navigate = useNavigate();
@@ -27,7 +27,7 @@ export function Navbar(){
         if(is_login){
             dispatch(setIsLogin(true))
         }
-    },[])
+    },[dispatch, setIsLogin])
     //set path in localStorage
     useEffect(()=>{
         dispatch(setCurrentLocationPath(location.pathname));
