@@ -5,7 +5,6 @@ export function showToast(type, message, duration = 3000) {
     window.dispatchEvent(event);
   } catch (err) {
     // Fallback
-    console.log(`${type?.toUpperCase() || "INFO"}: ${message}`);
+    // console.log(`${type?.toUpperCase() || "INFO"}: ${message}`);
   }
 }
-

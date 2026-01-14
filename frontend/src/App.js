@@ -20,7 +20,7 @@ import { useEffect } from "react";
 import Toast from "./components/Toast/Toast";
 
 const path = localStorage.getItem("Path")
-console.log("In App", path)
+// console.log("In App", path)
 function App() {
   const router = createBrowserRouter([
     {path: "/", element:<Navbar/>, errorElement: <ErrorPage/>,

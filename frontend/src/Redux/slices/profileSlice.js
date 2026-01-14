@@ -20,7 +20,6 @@ export const fetchAdminProfile = createAsyncThunk(
       }
       return data;
     } catch (err) {
-      console.log(err);
       return rejectWithValue(err.message);
     }
   }
@@ -45,7 +44,6 @@ export const fetchAdminMetrics = createAsyncThunk(
       }
       return data;
     } catch (err) {
-      console.log(err);
       return rejectWithValue(err.message);
     }
   }
