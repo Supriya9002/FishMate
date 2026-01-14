@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { registerAdmin } from "../../Redux/slices/adminSlice";
+import { showToast } from "../../utils/toast";
 
 function Register() {
   const [formData, setFormdata] = useState({name:"", mobaile:"", password:""});
@@ -14,10 +15,11 @@ function Register() {
     disppatch(registerAdmin(formData)).then((result)=>{
       console.log("result", result);
       if(result.meta.requestStatus === "fulfilled"){
-        alert("Admin Registred Succesfull");
+        showToast("success", "Registered Successful");
         navigate("/login");
       }else if(result.meta.requestStatus === "rejected"){
-        alert(error);
+        const msg = typeof error === "string" ? error : (error?.message || "An unknown error occurred");
+        showToast("error", msg);
       }
     })
     // Reset form data after submission
@@ -41,4 +43,3 @@ function Register() {
 }
 
 export default Register;
-

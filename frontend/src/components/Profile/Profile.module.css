@@ -1,10 +1,348 @@
-.profileContainer{
-    margin: 10rem  auto;
-    text-align: center;
+.profileContainer {
+  width: 100%;
+  min-height: calc(100vh - 60px);
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e8eaf6 100%);
+  padding: 2rem 1rem;
+  box-sizing: border-box;
 }
-.profileContainer h1{
-    color: red;
+
+/* Admin Profile Card */
+.profileCard {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  overflow: hidden;
+  width: 100%;
 }
-.profileContainer p{
-    color: rgb(0, 90, 0);
+
+.profileHeader {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 1.5rem;
+  color: white;
+}
+
+.profileHeader h2 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.profileInfo {
+  padding: 2rem;
+}
+
+.infoRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.infoRow:last-child {
+  border-bottom: none;
+}
+
+.label {
+  font-weight: 600;
+  color: #667eea;
+  font-size: 1rem;
+}
+
+.value {
+  color: #333;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+/* Metrics Section */
+.metricsContainer {
+  flex: 1;
+  max-width: 1000px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.metricsTitle {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1b1919;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Tab Buttons */
+.tabButtons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.tabBtn {
+  padding: 0.8rem 1.5rem;
+  border: 2px solid #667eea;
+  background-color: white;
+  color: #667eea;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.tabBtn:hover {
+  background-color: #f0f3f7;
+  transform: translateY(-2px);
+}
+
+.tabBtn.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Metrics Cards */
+.metricsCards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.metricCard {
+  background: white;
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  transition: all 0.3s ease;
+}
+
+.metricCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.metricIcon {
+  font-size: 2.5rem;
+  min-width: 60px;
+  text-align: center;
+}
+
+.metricContent {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.metricLabel {
+  font-size: 0.9rem;
+  color: #999;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.metricValue {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: #667eea;
+}
+
+/* Loading State */
+.loadingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  min-height: 400px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f0f0f0;
+  border-top-color: #667eea;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.loadingContainer p {
+  color: #667eea;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+/* Error State */
+.errorMessage {
+  background-color: #fee;
+  border: 2px solid #fcc;
+  border-radius: 8px;
+  padding: 1.5rem;
+  color: #c33;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .profileContainer {
+    padding: 1.5rem 0.8rem;
+  }
+
+  .profileCard {
+    max-width: 100%;
+  }
+
+  .metricsTitle {
+    font-size: 1.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tabButtons {
+    gap: 0.8rem;
+  }
+
+  .tabBtn {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.95rem;
+  }
+
+  .metricsCards {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.2rem;
+  }
+
+  .metricCard {
+    padding: 1.2rem;
+  }
+
+  .metricValue {
+    font-size: 1.5rem;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .profileContainer {
+    padding: 1rem 0.6rem;
+  }
+
+  .profileCard {
+    margin-bottom: 1.5rem;
+  }
+
+  .profileHeader {
+    padding: 1.2rem;
+  }
+
+  .profileHeader h2 {
+    font-size: 1.3rem;
+  }
+
+  .profileInfo {
+    padding: 1.2rem;
+  }
+
+  .infoRow {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    padding: 0.8rem 0;
+  }
+
+  .label {
+    font-size: 0.9rem;
+  }
+
+  .value {
+    font-size: 0.95rem;
+  }
+
+  .metricsTitle {
+    font-size: 1.4rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .tabButtons {
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .tabBtn {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  .metricsCards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .metricCard {
+    padding: 1rem;
+    gap: 0.8rem;
+  }
+
+  .metricIcon {
+    font-size: 2rem;
+  }
+
+  .metricValue {
+    font-size: 1.4rem;
+  }
+
+  .metricLabel {
+    font-size: 0.8rem;
+  }
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .profileContainer h1 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .profileContainer p {
+    font-size: 1rem;
+    padding: 1.2rem 1.5rem;
+    max-width: 100%;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .profileContainer {
+    padding: 1rem 0.8rem;
+  }
+
+  .profileContainer h1 {
+    font-size: 1.6rem;
+    margin-bottom: 1.2rem;
+  }
+
+  .profileContainer p {
+    font-size: 0.95rem;
+    padding: 1rem;
+  }
 }

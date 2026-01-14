@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 import "./../../env.js";
 
 const url = process.env.DB_URL || "mongodb://127.0.0.1:27017/FishGuru";
-console.log(process.env.DB_URL, url)
+console.log(process.env.DB_URL, url);
 
 const connectUsingMongoose = async () => {
   try {

@@ -7,6 +7,7 @@ import { addCoustomer } from "../../Redux/slices/coustomerSlice"
 import { useParams } from "react-router-dom"
 import { fetchFishDetails } from "../../Redux/slices/coustomerSlice"
 import { fetchCoustomerDetails } from "../../Redux/slices/coustomerSlice"
+import { showToast } from "../../utils/toast";
 
 export function AddCoustomer(){
   const { fishID } = useParams(); // get the fish ID from the route params
@@ -32,19 +33,49 @@ export function AddCoustomer(){
   const handleSubmit = async(e)=>{
     e.preventDefault();
     try{
+      if(!fishDetails){
+        showToast("error", "Fish details not loaded");
+        return;
+      }
+      if(fishDetails?.availableQuantity <= 0){
+        showToast("error", "Fish not available");
+        return;
+      }
+      const qty = Number(formData.quantity);
+      if(!Number.isFinite(qty) || qty <= 0){
+        showToast("error", "Quantity must be positive");
+        return;
+      }
+      if(qty > Number(fishDetails?.availableQuantity)){
+        showToast("error", `Available Fish Quantity ${fishDetails?.availableQuantity}kg`);
+        return;
+      }
+      const mobile = (formData.mobaile || "").toString().trim();
+      if(!mobile){
+        showToast("error", "Mobile number needed");
+        return;
+      }
+      if(!/^\d{7,}$/.test(mobile)){
+        showToast("error", "Valid mobile number needed");
+        return;
+      }
       if(formData.customerPay === "Yes"){
         formData.payment = formData.quantity * fishDetails?.price;
       }else if(formData.customerPay === "No"){
         formData.payment = 0;
+      }else{
+        showToast("error", "Please select Customer Pay: Yes or No");
+        return;
       }
       dispatch(addCoustomer({formData, fishID}))
       .then((result)=>{
         if(result.meta.requestStatus === "fulfilled"){
-          alert(successMessage)
+          showToast("success", successMessage || "Coustomer Add Successful!")
           navigate("/coustomer");
           setFormData({name:"",mobaile:"", payment:"", quantity:"", customerPay: ""})
         }else if(result.meta.requestStatus === "rejected"){
-          alert(error?._message || error || "An unknown error occurred");
+          const msg = typeof error === "string" ? error : (error?._message || error?.message || "An unknown error occurred");
+          showToast("error", msg);
         }
     })
     }catch(err){

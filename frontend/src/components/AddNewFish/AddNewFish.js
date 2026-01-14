@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addFish } from "../../Redux/slices/fishSlice";
 import { useSelector } from "react-redux";
+import { showToast } from "../../utils/toast";
 
 
 export function AddNewFish() {
@@ -13,12 +14,34 @@ export function AddNewFish() {
     const {loading, error, successMessage} = useSelector((state)=> state.fish);
     const handleSubmit = async (e)=>{
         e.preventDefault();
+        // basic validations with clear feedback
+        const name = (FormData.name || "").trim();
+        const price = Number(FormData.price);
+        const qty = Number(FormData.availableQuantity);
+        if (!name) {
+            showToast("error", "Name required");
+            return;
+        }
+        if (/[0-9]/.test(name)) {
+            showToast("error", "Name must be String");
+            return;
+        }
+        if (!Number.isFinite(price) || price <= 0) {
+            showToast("error", "Price must be positive");
+            return;
+        }
+        if (!Number.isFinite(qty) || qty < 0) {
+            showToast("error", "Available quantity must be non-negative");
+            return;
+        }
         disppatch(addFish(FormData))
         .then((result)=>{
             if(result.meta.requestStatus === "fulfilled"){
+                showToast("success", successMessage || "Fish Add Successful!");
                 navigate("/");
             }else if(result.meta.requestStatus === "rejected"){
-                alert(error);
+                const msg = typeof error === "string" ? error : (error?.message || "An unknown error occurred");
+                showToast("error", msg);
             }
         })
         setFormData({name:"",price:"",availableQuantity:""});

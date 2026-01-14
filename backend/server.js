@@ -6,6 +6,8 @@ import fishRouter from "./src/fish/fish.routes.js";
 import coustomerRouter from "./src/coustomer/coustomer.routes.js";
 import bodyParser from "body-parser"
 import cors from "cors"
+import logger from "./src/logger/logger.js";
+import errorHandler from "./src/middleware/error.middleware.js";
 
 // server
 const server = express();
@@ -27,5 +29,8 @@ server.get("/", (req, res)=>{
 // Port
 server.listen(process.env.Port || 2000, ()=>{
     connectUsingMongoose();
-    console.log(`Server Listen is port ${process.env.Port}`);
+    logger.info("Server started", { port: process.env.Port || 2000 });
 })
+
+// Error handler (must be after routes)
+server.use(errorHandler);

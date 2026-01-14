@@ -11,6 +11,7 @@ import { useDispatch } from "react-redux"
 import { adminActions } from "../../Redux/slices/adminSlice";
 import { useNavigate } from "react-router-dom"
 import { useLocation } from "react-router-dom"
+import { showToast } from "../../utils/toast";
 
 
 export function Navbar(){
@@ -34,7 +35,7 @@ export function Navbar(){
     })
     // console.log("currentLocationPath",currentLocationPath)
     const handleLogout = (e)=>{
-        alert("Log Out Succesful")
+        showToast("success", "Log Out successful")
         e.preventDefault()
         localStorage.removeItem('authToken');
         localStorage.removeItem('isLogin'); //userData

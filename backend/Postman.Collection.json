@@ -1,0 +1,574 @@
+{
+  "info": {
+    "name": "FishMate Backend APIs",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:2000"
+    },
+    {
+      "key": "token",
+      "value": ""
+    }
+  ],
+  "item": [
+    {
+      "name": "Root",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/",
+          "host": [
+            "{{baseUrl}}"
+          ],
+          "path": [
+            ""
+          ]
+        },
+        "description": "Welcome endpoint"
+      }
+    },
+    {
+      "name": "Admin",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Admin User\",\n  \"mobaile\": 9999999999,\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/register",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "register"
+              ]
+            },
+            "description": "Create admin account"
+          }
+        },
+        {
+          "name": "Login",
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "exec": [
+                  "let token;",
+                  "try {",
+                  "  token = pm.response.json();",
+                  "} catch (e) {",
+                  "  token = pm.response.text();",
+                  "}",
+                  "if (token) {",
+                  "  pm.collectionVariables.set(\"token\", token);",
+                  "}"
+                ],
+                "type": "text/javascript"
+              }
+            }
+          ],
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mobaile\": 9999999999,\n  \"password\": \"password123\"\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/login",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "login"
+              ]
+            },
+            "description": "Login and store token to {{token}}"
+          }
+        },
+        {
+          "name": "Profile",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/profile",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "profile"
+              ]
+            },
+            "description": "Get current admin profile details"
+          }
+        },
+        {
+          "name": "Metrics (weekly/monthly/yearly)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "{{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/admin/metrics",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "metrics"
+              ]
+            },
+            "description": "Get revenue and due metrics for weekly/monthly/yearly"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Fish",
+      "item": [
+        {
+          "name": "Add Fish",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rohu\",\n  \"price\": 250,\n  \"availableQuantity\": 100\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/fish/add",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "fish",
+                "add"
+              ]
+            },
+            "description": "Create fish item"
+          }
+        },
+        {
+          "name": "Display All Fish (today)",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/fish/displayallfish",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "fish",
+                "displayallfish"
+              ]
+            },
+            "description": "List fish entries for current date"
+          }
+        },
+        {
+          "name": "Fish Details by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/fish/fishDetails/:fishID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "fish",
+                "fishDetails",
+                ":fishID"
+              ],
+              "variable": [
+                {
+                  "key": "fishID",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Update Fish by ID",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Rohu\",\n  \"price\": 275,\n  \"availableQuantity\": 90\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/fish/update/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "fish",
+                "update",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Delete Fish by ID",
+          "request": {
+            "method": "DELETE",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/fish/delete/:id",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "fish",
+                "delete",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        }
+      ]
+    },
+    {
+      "name": "Customer",
+      "item": [
+        {
+          "name": "Customer Fish Buy",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"quantity\": 2,\n  \"payment\": 200,\n  \"name\": \"John Doe\",\n  \"mobaile\": 9999999999\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer/customerFishBuy/:fishID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customer",
+                "customerFishBuy",
+                ":fishID"
+              ],
+              "variable": [
+                {
+                  "key": "fishID",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Customer Details by Mobile",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"mobaile\": 9999999999\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer/customerDetails",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customer",
+                "customerDetails"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get All Customers",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customer/getAllCustomer",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customer",
+                "getAllCustomer"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Get Customer Details by ID",
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/api/customer/getCustomerDetailsByID/:customerID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customer",
+                "getCustomerDetailsByID",
+                ":customerID"
+              ],
+              "variable": [
+                {
+                  "key": "customerID",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Full Payment by Customer",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"Payment\": 500\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer/fullPaymentByCustomer/:customerID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customer",
+                "fullPaymentByCustomer",
+                ":customerID"
+              ],
+              "variable": [
+                {
+                  "key": "customerID",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "One Payment by Customer (transaction)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"payment\": 100\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer/onePaymentByCustomer/:customerID/:transactionID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customer",
+                "onePaymentByCustomer",
+                ":customerID",
+                ":transactionID"
+              ],
+              "variable": [
+                {
+                  "key": "customerID",
+                  "value": ""
+                },
+                {
+                  "key": "transactionID",
+                  "value": ""
+                }
+              ]
+            }
+          }
+        },
+        {
+          "name": "Pay for Specific Fish (legacy route)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "authorization",
+                "value": "{{token}}"
+              },
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"amountPay\": 100\n}"
+            },
+            "url": {
+              "raw": "{{baseUrl}}/api/customer/customerPayforSpecificFish/:customerID/:transactionID",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "customer",
+                "customerPayforSpecificFish",
+                ":customerID",
+                ":transactionID"
+              ],
+              "variable": [
+                {
+                  "key": "customerID",
+                  "value": ""
+                },
+                {
+                  "key": "transactionID",
+                  "value": ""
+                }
+              ]
+            },
+            "description": "Route exists but controller currently lacks implementation"
+          }
+        }
+      ]
+    }
+  ]
+}

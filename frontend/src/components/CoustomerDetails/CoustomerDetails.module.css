@@ -1,112 +1,281 @@
+.CoustomerDetailsDivContainer {
+  height: auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 1rem;
+  text-align: center;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
 
-.CoustomerDetailsDivContainer{
-    height: auto;
-    /* width: 70%; */
-    margin-top: 2rem;
-    display: flex;
-    flex-direction: column;
-    /* border: 2px solid red; */
-    margin: 2rem auto;
-    text-align: center;
+.CoustomerDetails {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 0 auto 2rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
 }
-.CoustomerDetails{
-    width: 15rem;
-    height: 6rem;
-    display: flex;
-    flex-direction: column;
-    position: fixed;
-    top: 30%;
-    margin: 10px;
-    /* background-color: #d3d3e9; */
-    /* background-color: #15a78a; */
-    background-color: #9d9dec;
-    align-items: center;
-    border-radius: 5px;
+
+.header {
+  font-size: 1.2rem;
+  color: white;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  max-width: 100%;
 }
-.header{
-    font-size: 1.5rem;
-    color: rgb(255, 0, 0);
-    /* color: whitesmoke; */
-    font-weight: bold;
-    margin-bottom: .1rem;
-    margin-top: .3rem;
+
+.name {
+  font-size: 1.4rem;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 0.5rem;
 }
-.name{
-    font-size: 1.5rem;
-    /* color: #224957; */
-    color: rgb(147, 2, 2);
-    font-weight: bold;
-    margin-bottom: .1rem;
-}
-.mobaileNo{
-    font-size: 1.2rem;
-    /* color: #224957; */
-    color: rgb(147, 2, 2);
-    font-weight: bold;
-    margin-bottom: .1rem;
+
+.mobaileNo {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-weight: 600;
+  margin-bottom: 0;
 }
 
 /* Table */
 .CoustomerTableDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    border-radius: 10px;
-    font-size: 18px;
-    width: 80%;
-    margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  width: 100%;
+  margin: auto;
+  overflow-x: auto;
 }
 
 .CoustomerTableDiv span {
-    font-size: 22px;
-    color: #4a4a4a;
-    margin-bottom: 15px;
-    font-weight: bold;
+  font-size: 1.5rem;
+  color: #1b1919;
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .CoustomerTable {
-    width: 70%;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: left;
-    font-size: 18px;
-    border-radius: 10px;
-    overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .CoustomerTable th,
 .CoustomerTable td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  text-align: center;
 }
 
 .CoustomerTable thead {
-    background-color: #8e8edb;
-    color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
 }
 
 .CoustomerTable tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+  background-color: #f8f9fa;
 }
 
 .CoustomerTable tbody tr:hover {
-    background-color: #e1e4e8;
+  background-color: #e8eaf6;
+  transition: background-color 0.2s ease;
 }
 
 .CoustomerTable tbody tr td a {
-    text-decoration: none;
-    color: #007bff;
+  text-decoration: none;
+  color: #667eea;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.CoustomerTable tbody tr td a:hover {
+  color: #764ba2;
+  text-decoration: underline;
 }
 
 .CoustomerTable tbody tr td a img {
-    width: 20px;
-    height: 20px;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.checkImg{
-    height: 21px;
-    width: 21px;
+.CoustomerTable tbody tr td a img:hover {
+  transform: scale(1.15);
+}
+
+.checkImg {
+  height: 24px;
+  width: 24px;
+  opacity: 0.7;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .CoustomerDetailsDivContainer {
+    width: 95%;
+    padding: 0 0.5rem;
+  }
+
+  .CoustomerDetails {
+    padding: 1.2rem;
+    max-width: 100%;
+  }
+
+  .header {
+    font-size: 1.1rem;
+  }
+
+  .name {
+    font-size: 1.3rem;
+  }
+
+  .mobaileNo {
+    font-size: 1rem;
+  }
+
+  .CoustomerTableDiv span {
+    font-size: 1.2rem;
+  }
+
+  .CoustomerTable {
+    font-size: 0.85rem;
+  }
+
+  .CoustomerTable th,
+  .CoustomerTable td {
+    padding: 0.8rem 0.5rem;
+  }
+
+  .CoustomerTable tbody tr td a img,
+  .checkImg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .CoustomerDetailsDivContainer {
+    width: 100%;
+    margin: 1rem auto;
+    padding: 0;
+  }
+
+  .CoustomerDetails {
+    padding: 1rem;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .header {
+    font-size: 1rem;
+  }
+
+  .name {
+    font-size: 1.2rem;
+  }
+
+  .mobaileNo {
+    font-size: 0.9rem;
+  }
+
+  .CoustomerTableDiv {
+    overflow-x: visible;
+  }
+
+  .CoustomerTableDiv span {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+  }
+
+  .CoustomerTable {
+    font-size: 0.75rem;
+    width: 100%;
+    display: block;
+  }
+
+  .CoustomerTable thead {
+    display: none;
+  }
+
+  .CoustomerTable tbody {
+    display: block;
+  }
+
+  .CoustomerTable tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .CoustomerTable td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .CoustomerTable td:last-child {
+    border-bottom: none;
+  }
+
+  .CoustomerTable td:before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #667eea;
+    min-width: 80px;
+  }
+
+  .CoustomerTable td:nth-child(1):before {
+    content: "Fish";
+  }
+  .CoustomerTable td:nth-child(2):before {
+    content: "Qty";
+  }
+  .CoustomerTable td:nth-child(3):before {
+    content: "Price";
+  }
+  .CoustomerTable td:nth-child(4):before {
+    content: "Amount";
+  }
+
+  .CoustomerTable tbody tr td a img,
+  .checkImg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .CoustomerTable tbody tr td a {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
 }

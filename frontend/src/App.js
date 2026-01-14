@@ -17,6 +17,7 @@ import ErrorPage from "./components/Error/ErrorPage";
 import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 import { useSelector } from "react-redux";
 import { useEffect } from "react";
+import Toast from "./components/Toast/Toast";
 
 const path = localStorage.getItem("Path")
 console.log("In App", path)
@@ -41,6 +42,7 @@ function App() {
   return (
     <Provider store={store}>
       {/* Write hare code */}
+      <Toast/>
       <RouterProvider router={router}/>
     </Provider>
   )

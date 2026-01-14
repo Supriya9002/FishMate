@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { onePaymentByCoustomer } from "../../Redux/slices/coustomerSlice";
 import { useState } from "react";
+import { showToast } from "../../utils/toast";
 
 
 export function PayOneForm() {
@@ -37,11 +38,11 @@ export function PayOneForm() {
             await dispatch(onePaymentByCoustomer({Payment: formData.Payment, coustomerID, transactionID}))
             .then((result)=>{
                 if(result.meta.requestStatus === "fulfilled"){
-                //   alert(successMessage)
+                  showToast("success", "Payment Successful");
                   navigate("/coustomer");
                   setFormData({Payment:0})
                 }else if(result.meta.requestStatus === "rejected"){
-                  alert("An unknown error occurred");
+                  showToast("error", "An unknown error occurred");
                 }
             })
         }catch(err){

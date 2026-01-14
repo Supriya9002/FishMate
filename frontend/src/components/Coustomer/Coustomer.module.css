@@ -1,110 +1,283 @@
-
-.CoustomerDivContainer{
-    height: auto;
-    width: 70%;
-    margin: 2rem auto;
-    /* border: 2px solid red; */
-}
-.noRecord{
-    text-align: center;
-    margin-top: 1rem;
-    color: rgb(255, 50, 50);
-}
-.seachContainer{
-    display: flex;
-    flex-direction: row;
-    gap: .7rem;
-    /* background-color: red; */
-    width: 40rem;
-    height: 4rem;
-    align-items: center;
-    justify-content: center;
-    margin-left: 14rem;
-}
-.seachContainer input{
-    height: 2.5rem;
-    width: 50rem;
-    border-radius: 5px;
-    font-size: 1.4rem;
-    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    padding-left: 1rem;
-}
-.seachContainer button{
-    height: 2.5rem;
-    width: 5.7rem;
-    border-radius: 5px;
-    background-color: #A0A0F9;
-    color: #FFFFFF;
-    border: 1px solid #A0A0F9;
-    font-size: 1.2rem;
-    padding: .5rem;
-    font-weight: bold;
+.CoustomerDivContainer {
+  height: auto;
+  width: 90%;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
 }
 
-/* Coustomertable Table  */
+.noRecord {
+  text-align: center;
+  margin-top: 2rem;
+  color: #ff3232;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.seachContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 0.8rem;
+  width: 100%;
+  height: auto;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.seachContainer input {
+  height: 2.5rem;
+  flex: 1;
+  min-width: 200px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  padding: 0 1rem;
+  border: 2px solid #e0e0e0;
+  transition: all 0.3s ease;
+}
+
+.seachContainer input:focus {
+  outline: none;
+  border-color: #667eea;
+  box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.seachContainer button {
+  height: 2.5rem;
+  padding: 0 1.5rem;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.seachContainer button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4);
+}
+
+/* Customer Table */
 
 .CoustomerDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 50px;
-    padding: 20px;
-    /* background-color: #f3f4f6; */
-    border-radius: 10px;
-    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2rem;
+  padding: 0;
+  border-radius: 10px;
+  overflow-x: auto;
 }
 
 .CoustomerDivHeader {
-    color: #4a4a4a;
-    font-size: 24px;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: bold;
+  color: #1b1919;
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
 }
 
 .Coustomertable {
-    width: 70%;
-    border-collapse: collapse;
-    margin: 0 auto;
-    text-align: left;
-    font-size: 18px;
-    border-radius: 10px;
-    overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  background-color: white;
 }
 
 .Coustomertable th,
 .Coustomertable td {
-    padding: 12px 15px;
-    border: 1px solid #ddd;
-    text-align: center;
+  padding: 1rem;
+  border: 1px solid #e0e0e0;
+  text-align: center;
 }
 
 .Coustomertable thead {
-    background-color: #8e8edb;
-    color: white;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  font-weight: 600;
 }
 
 .Coustomertable tbody tr:nth-child(even) {
-    background-color: #f9f9f9;
+  background-color: #f8f9fa;
 }
 
 .Coustomertable tbody tr:hover {
-    background-color: #e1e4e8;
+  background-color: #e8eaf6;
+  transition: background-color 0.2s ease;
 }
 
 .Coustomertable tbody tr td a {
-    text-decoration: none;
-    color: #007bff;
+  text-decoration: none;
+  color: #667eea;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.Coustomertable tbody tr td a:hover {
+  color: #764ba2;
+  text-decoration: underline;
 }
 
 .Coustomertable tbody tr td a img {
-    width: 22px;
-    height: 22px;
-    cursor: pointer;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-.checkImg{
-    height: 21px;
-    width: 21px;
+.Coustomertable tbody tr td a img:hover {
+  transform: scale(1.15);
 }
 
+.checkImg {
+  height: 24px;
+  width: 24px;
+  opacity: 0.7;
+}
+
+/* Tablet Styles */
+@media (max-width: 768px) {
+  .CoustomerDivContainer {
+    width: 95%;
+    padding: 0 0.5rem;
+  }
+
+  .seachContainer {
+    flex-direction: column;
+  }
+
+  .seachContainer input {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .seachContainer button {
+    width: 100%;
+  }
+
+  .Coustomertable {
+    font-size: 0.85rem;
+  }
+
+  .Coustomertable th,
+  .Coustomertable td {
+    padding: 0.8rem 0.5rem;
+  }
+
+  .Coustomertable tbody tr td a img,
+  .checkImg {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Mobile Styles */
+@media (max-width: 480px) {
+  .CoustomerDivContainer {
+    width: 100%;
+    margin: 1rem auto;
+    padding: 0;
+  }
+
+  .seachContainer {
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    flex-direction: column;
+  }
+
+  .seachContainer input,
+  .seachContainer button {
+    height: 2.3rem;
+    font-size: 0.9rem;
+    width: 100%;
+  }
+
+  .CoustomerDiv {
+    margin-top: 1.5rem;
+    overflow-x: visible;
+  }
+
+  .Coustomertable {
+    font-size: 0.75rem;
+    width: 100%;
+    display: block;
+  }
+
+  .Coustomertable thead {
+    display: none;
+  }
+
+  .Coustomertable tbody {
+    display: block;
+  }
+
+  .Coustomertable tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    background-color: white;
+    overflow: hidden;
+  }
+
+  .Coustomertable td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  .Coustomertable td:last-child {
+    border-bottom: none;
+  }
+
+  .Coustomertable td:before {
+    content: attr(data-label);
+    font-weight: 700;
+    color: #667eea;
+    min-width: 100px;
+  }
+
+  .Coustomertable td:nth-child(1):before {
+    content: "Name";
+  }
+  .Coustomertable td:nth-child(2):before {
+    content: "Mobile";
+  }
+  .Coustomertable td:nth-child(3):before {
+    content: "Total Buy";
+  }
+  .Coustomertable td:nth-child(4):before {
+    content: "Due";
+  }
+  .Coustomertable td:nth-child(5):before {
+    content: "Action";
+  }
+  .Coustomertable td:nth-child(6):before {
+    content: "Details";
+  }
+
+  .Coustomertable tbody tr td a img,
+  .checkImg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .Coustomertable tbody tr td a {
+    font-size: 0.85rem;
+    font-weight: 600;
+  }
+}

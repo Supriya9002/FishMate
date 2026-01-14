@@ -6,6 +6,7 @@ import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { loginAdmin } from "../../Redux/slices/adminSlice";
 import { adminActions } from "../../Redux/slices/adminSlice";
+import { showToast } from "../../utils/toast";
 
 function Login() {
   const [formData, setFormdata] = useState({mobaile:"", password:""});
@@ -18,11 +19,12 @@ function Login() {
     try{
       dispatch(loginAdmin(formData)).then((result)=>{
         if(result.meta.requestStatus === "fulfilled"){
-          alert("Admin Login Succesfull");
+          showToast("success", "Login Successful");
           dispatch(setIsLogin(true));
           navigate("/");
         }else if(result.meta.requestStatus === "rejected"){
-          alert(error);
+          const msg = typeof error === "string" ? error : (error?.message || "An unknown error occurred");
+          showToast("error", msg);
         }
       })
       setFormdata({mobaile:"", password:""});
